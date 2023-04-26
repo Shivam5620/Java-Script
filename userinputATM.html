@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ATM Program</title>
+    <link rel="stylesheet" href="Atm.css">
+</head>
+
+<body>
+    <div class="atm">
+        <h1>ATM Program</h1>
+        <div class="screen" id="result">
+            <div class="log"></div>
+            <form>
+                <label for="">Enter PIN:</label>
+                <input type="password" id="pin" name="pin" required>
+                <input type="button" value="Login" onclick="Login()">
+
+            </form>
+            <div class="menu">
+                <button class="credit">Credit</button>
+                <button class="debit">Debit</button>
+                <button class="balance">Check Balance</button>
+                <button class="repeat">Repeat</button>
+                <button class="exit">Exit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function Login() {
+            var pin = parseInt(document.getElementById('pin').value);
+            var amt = 50000;
+            var flag = false;
+            var c = 0;
+            var message = ""
+            for (var i = 1; i <= 3; i++) {
+                if (pin == "5555") {
+                    document.getElementById("result").innerHTML = `Welcome To ATM`;
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag) {
+                while (true) {
+                    if (c > 3) {
+                        break;
+                    }
+                    let ope = parseInt(document.getElementById("result").innerHTML = `press c for credit
+                                           press d for debit
+                                           press b for check balance
+                                           press e for exit 
+                                           press r for repeat operation`);
+                    if (ope == "c") {
+                        let creditamt = parseInt(document.getElementById("result").innerHTML = `Please enter the amount you want to credit`)
+                        amt += creditamt;
+                        message = `currrent balance is ${amt} and credited amt ${creditamt}`;
+                        c++
+                        message = c;
+                    }
+                    if (ope == "d") {
+                        let debitamt = parseInt(document.getElementById("result").innerHTML = `Please enter amount you  want to credit`)
+                        if (debitamt < amt) {
+                            amt = amt - debitamt;
+                            message = `current balance is ${amt} and debited amt is ${debitamt}`
+                            c++;
+                            message = c;
+                        }
+                        else {
+                            document.getElementById("result").innerHTML = "no sufficient balance in your account"
+                        }
+                    }
+                    if (ope == "b") {
+                        document.getElementById("result").innerHTML = `your current balance is = ${amt}`
+                    }
+                    if (ope == "e") {
+                        break;
+                    }
+                    if (ope == "r") {
+                        c = 0;
+                        continue;
+                    }
+                    document.write(message)
+
+                }
+
+            }
+            else {
+                document.getElementById(`you have entered wrong pin code and you have completed your attempt`)
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var M1 = "Math"
+        var M = parseInt(prompt("Enter Math Marks"))
+        var H1 = "Hindi"
+        var H = parseInt(prompt("Enter Hindi Marks"))
+        var E1 = "English"
+        var E = parseInt(prompt("Enter English Marks"))
+        var S1 = "Science"
+        var S = parseInt(prompt("Enter Science Marks"))
+        var Ss1 = "Social Science"
+        var Ss = parseInt(prompt("Enter Social Science Marks"))
+        var c = 0;
+        var res = ""
+        var g = 0;
+        var sub = ""
+        var dist=""
+        if (M >= 0 & M <= 100 && H >= 0 & H <= 100 && E >= 0 & E <= 100 && S >= 0 & S <= 100 && Ss >= 0 & Ss <= 100) {
+            if (M < 33) {
+                c++
+                g = M
+                sub = sub + M1;
+            }
+            if (H < 33) {
+                c++
+                g = H
+                sub = sub + H1;
+            }
+            if (E < 33) {
+                c++
+                g = E
+                sub = sub + E1;
+            }
+            if (S < 33) {
+                c++
+                g = S
+                sub = sub + S1;
+            }
+            if (Ss < 33) {
+                c++
+                g = Ss
+                sub = sub + Ss1;
+            }
+            if(M>75)
+            {
+                dist=dist+M1;
+            }
+            if(H>75)
+            {
+                dist=dist+H1
+            }
+            if(E>75)
+            {
+                dist=dist+E1
+            }
+            if(S>75)
+            {
+                dist=dist+S1
+            }
+            if(Ss>75)
+            {
+                dist=dist+Ss
+            }
+            if (c == 0 || c == 1 && g >= 28) {
+                var per = (M + H + E + S + Ss) / 5;
+                if (per >= 33 && per <= 45) {
+                    document.write('congrats you are pass with third division ' + per + '%'+"<br>")
+                }
+                else if (per < 60) {
+                    document.write('congrats your are passed with second division ' + per + '%'+"<br>")
+                }
+                else {
+                    document.write('congrats you are passed with first divison ' + per + '%'+"<br>")
+                }
+                if(dist!="")
+                {
+                    document.write("distance subject is "+ dist +"<br>")
+                }
+                if (c == 1) {
+                    document.write("pass by grace and grace " + (33 - g) + " mark " + sub);
+                }
+            }
+            else if (c == 1) {
+                res = "supple" + " " + sub
+            }
+            else {
+                res = ' Fail ' + " " + sub
+            }
+            document.write(res);
+        }
+        else {
+            document.write('Invalid Marks')
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

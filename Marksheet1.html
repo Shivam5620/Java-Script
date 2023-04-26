@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function CheckRS() {
+        var H = parseInt(document.getElementById('H').value);
+        var E = parseInt(document.getElementById("E").value);
+        var M = parseInt(document.getElementById("M").value);
+        var S = parseInt(document.getElementById("S").value);
+        var Ss = parseInt(document.getElementById("Ss").value);
+        var dist = ''
+        var c = 0;
+        var result = ""
+        var sub = ""
+        var g = 0
+        var dist = ""
+        if (H >= 0 & H <= 100 && E >= 0 & E <= 100 && M >= 0 & M <= 100 && S >= 0 & S <= 100 && Ss >= 0 & Ss <= 100) {
+            if (H < 33) {
+                c++;
+                g = H;
+                sub += H1;
+            }
+            if (E < 33) {
+                c++;
+                g = E;
+                sub += E1;
+            }
+            if (M < 33) {
+                c++;
+                g = M;
+                sub += M1;
+            }
+            if (S < 33) {
+                c++;
+                g = S;
+                sub += S1;
+            }
+            if (Ss < 33) {
+                c++;
+                g = Ss;
+                sub += Ss1;
+            }
+            //distance condition if marks >75;
+            if (H > 75) {
+                dist += H1
+            }
+            if (E > 75) {
+                dist += E1
+            }
+            if (M > 75) {
+                dist += M1
+            }
+            if (S > 75) {
+                dist += S1
+            }
+            if (Ss > 75) {
+                dist += Ss1
+            }
+            if (c == 0 || c == 1 && g >= 28) {
+                var per = (M + H + E + S + Ss) / 5;
+                if (per >= 33 && per <= 45) {
+                    result = 'Pass you are third division ' + per + '%';
+                }
+                else if (per >= 45 && per <= 60) {
+                    result = 'Pass you are second division ' + per + '%';
+
+                }
+                else {
+                    result = 'Pass you are first division ' + per + '%';
+                }
+                if (c == 1) {
+                   result = "pass by grace and grace " + (33 - g) + " mark " + sub;
+                }
+                if (dist != "") {
+                    result = "distance subject is " + dist + "<br>"
+                }
+            }
+            else if (c == 1) {
+                result = "supple " + sub
+            }
+            else {
+                result = "fail"
+            }
+            document.write(result)
+        }
+        else {
+            document.write("invalid marks");
+        }
+    }
+</script>
+<body>
+    <center>
+            <input type="text" placeholder="Enter Hindi number" id="H">
+            <span id="H1"></span><br><br>
+            <input type="text" placeholder="Enter English number" id="E">
+            <span id="E1"></span><br><br>
+            <input type="text" placeholder="Enter Math number" id="M">
+            <span id="M1"></span><br><br>
+            <input type="text" placeholder="Enter Science number" id="S">
+            <span id="S1"></span><br><br>
+            <input type="text" placeholder="Enter Socialscience number" id="Ss">
+            <span id="Ss1"></span><br><br>
+            <input type="button" value="chack Result" onclick="CheckRS()"><br>
+    </center>
+</body>
+
+</html>
